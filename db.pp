@@ -10,6 +10,6 @@ mysqldb { 'opencart':
 }
 
 opencart::load_schema { "opencart":
-  $password = $database_password,
+  password = $database_password,
   require => Mysqldb['opencart'],
 }

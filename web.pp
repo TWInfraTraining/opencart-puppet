@@ -6,6 +6,6 @@ include php5
 
 # provide with facter
 opencart::install { "opencart",
-  $db_host = $database_host,
-  $db_password = $database_password,
+  db_host = $database_host,
+  db_password = $database_password,
 }
