@@ -1,4 +1,4 @@
-class database::server {
+class mysql {
   package { "mysql-server":
     ensure => installed,
   }

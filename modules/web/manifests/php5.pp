@@ -1,5 +1,5 @@
-class web::php5 {
-  include web::apache2
+class php5 {
+  include apache2
 
   package { "php5":
     ensure => installed,
@@ -7,11 +7,6 @@ class web::php5 {
     notify  => Service["apache2"],
   }
   
-  # file {
-  #   "/etc/apache2/mods-available/php5.conf":
-  #     content => template("web/etc/apache2/mods-available/php5.conf"),
-  #     mode => 440, owner => root, group => www-data;
-
   file { "/etc/php5/apache2/php.ini":
     content => template("web/etc/php5/apache2/php.ini"),
     mode => 0644, owner => root, group => root,
