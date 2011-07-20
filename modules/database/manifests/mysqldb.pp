@@ -1,4 +1,4 @@
-define mysqldb( $user = $name , $password ) {
+define mysqldb( $user, $password ) {
   exec { "create-${name}-db":
     unless => "/usr/bin/mysql -uroot ${name}",
     command => "/usr/bin/mysql -uroot -e \"create database ${name};\"",

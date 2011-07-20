@@ -5,6 +5,7 @@ import "opencart"
 include mysql
 
 mysqldb { 'opencart':
+  user => "opencart",
   password => "openpass",
 }
 

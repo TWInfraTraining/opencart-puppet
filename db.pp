@@ -3,13 +3,12 @@ import "opencart"
 
 include mysql
 
-# provide db password with facter
-
 mysqldb { 'opencart':
-  password => $database_password,
+  user => "opencart",
+  password => "openpass",
 }
 
 opencart::load_schema { "opencart":
-  password => $database_password,
+  password => "openpass",
   require => Mysqldb['opencart'],
 }
