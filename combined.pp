@@ -16,6 +16,6 @@ opencart::load_schema { "opencart":
 include apache2
 include php5
 
-opencart::install { "opencart",
+opencart::install { "opencart":
   db_password => "openpass",
 }
