@@ -1,4 +1,4 @@
-define opencart::load_schema($host = "localhost", $user = $name, $database = $name, $password) {
+define opencart::load_schema($host = "localhost", $user = "opencart", $database = "opencart", $password) {
   file { '/root/opencart.sql':
     content => template("opencart/schema.sql"),
   }

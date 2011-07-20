@@ -1,5 +1,4 @@
-define opencart::install( $version = $name, $db_host = "localhost", $db_database = "opencart", $db_username = "opencart", $db_password, $hostname="localhost" ) {
-  $destdir = "/var/opencart"
+define opencart::install( $db_host = "localhost", $db_database = "opencart",  $db_username = "opencart", $db_password, $hostname="localhost" ) {
   
   package { "php5-mysql":
     ensure => installed,
@@ -27,26 +26,27 @@ define opencart::install( $version = $name, $db_host = "localhost", $db_database
     require => [ Package["php5-mysql"], Package["php5-gd"], Package["php5-curl"] ],
   }
 
-  file { "$destdir/config.php":
-    content => template("web/opencart/config.php"),
+  file { "config.php":
+    path => "/var/opencart/config.php",
+    content => template("opencart/config.php"),
     owner => "www-data",
     require => Package["opencart"],
   }
 
-  file { "$destdir/admin/config.php":
-    content => template("web/opencart/admin/config.php"),
+  file { "admin/config.php":
+    path => "/var/opencart/admin/config.php",
+    content => template("opencart/admin/config.php"),
     owner => "www-data",
     require => Package["opencart"],
   }
 
   apache2::site {
-    "default": ensure => 'absent';
-    "default-ssl": ensure => 'absent';
+    "000-default": ensure => 'absent';
   }
 
   apache2::site { "opencart":
-      ensure => 'present',
-      require => Package["opencart"],
+    ensure => 'present',
+    require => Package["opencart"],
   }
 
 }

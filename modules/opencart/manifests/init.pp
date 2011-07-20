@@ -1,2 +1,2 @@
-import "web"
-import "database"
+import "opencart_web"
+import "opencart_db"
