@@ -9,7 +9,7 @@ mysqldb { 'opencart':
 }
 
 opencart::load_schema { "opencart":
-  password = "openpass",
+  password => "openpass",
   require => Mysqldb['opencart'],
 }
 
@@ -17,5 +17,5 @@ include apache2
 include php5
 
 opencart::install { "opencart",
-  db_password = "openpass",
+  db_password => "openpass",
 }
