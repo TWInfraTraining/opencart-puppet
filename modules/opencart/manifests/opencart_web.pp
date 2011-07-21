@@ -1,4 +1,4 @@
-define opencart::install( $db_host = "localhost", $db_database = "opencart",  $db_username = "opencart", $db_password, $hostname="localhost" ) {
+define opencart::install( $db_host = "localhost", $db_database = "opencart",  $db_username = "opencart", $db_password ) {
   
   package { "php5-mysql":
     ensure => installed,

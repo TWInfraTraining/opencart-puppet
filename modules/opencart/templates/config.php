@@ -1,12 +1,12 @@
 <?php
 // HTTP
-define('HTTP_SERVER', 'http://<%= hostname %>/');
-define('HTTP_IMAGE', 'http://<%= hostname %>/image/');
-define('HTTP_ADMIN', 'http://<%= hostname %>/admin/');
+define('HTTP_SERVER', '/');
+define('HTTP_IMAGE', '/image/');
+define('HTTP_ADMIN', '/admin/');
 
 // HTTPS
-define('HTTPS_SERVER', 'http://<%= hostname %>/');
-define('HTTPS_IMAGE', 'http://<%= hostname %>/image/');
+define('HTTPS_SERVER', '/');
+define('HTTPS_IMAGE', '/image/');
 
 // DIR
 define('DIR_APPLICATION', '/var/opencart/catalog/');
