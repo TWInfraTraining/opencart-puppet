@@ -5,7 +5,7 @@ class apache2 {
         exec { "/usr/sbin/a2ensite $name":
           unless => "/bin/readlink -e /etc/apache2/sites-enabled/$name",
           notify => Exec["reload-apache2"],
-          require => Package[$require],
+          require => $require,
         }
       }
       'absent' : {
