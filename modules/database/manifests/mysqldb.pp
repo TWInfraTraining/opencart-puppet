@@ -7,7 +7,7 @@ define mysqldb( $user, $password ) {
 
   exec { "grant-${name}-db":
     unless => "/usr/bin/mysql -u${user} -p${password} ${name}",
-    command => "/usr/bin/mysql -uroot -e \"grant all on ${name}.* to ${user}@'%' identified by '$password';\"",
+    command => "/usr/bin/mysql -uroot -e \"grant all on ${name}.* to ${user}@'%' identified by '$password';grant all on ${name}.* to ${user}@'localhost' identified by '$password';\"",
     require => [Service["mysql"], Exec["create-${name}-db"]]
   }
 }
